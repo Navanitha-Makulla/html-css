@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Animation</title>
+    <style>
+      body {
+        height: 120vh;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin: 20px;
+      }
+      .forward {
+        animation: slideInFromLeft 3s forwards;
+      }
+      .backward {
+        animation: slideInFromRight 3s forwards;
+      }
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(500%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(0%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(500%);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      let lastScrollTop = 0;
+
+      $(window).scroll(function () {
+        let currentScroll = $(this).scrollTop();
+        if (currentScroll > lastScrollTop) {
+          $(".box").removeClass("backward").addClass("forward");
+        } else {
+          $(".box").removeClass("forward").addClass("backward");
+        }
+        lastScrollTop = currentScroll;
+      });
+    </script>
+  </body>
+</html>

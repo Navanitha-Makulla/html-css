@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        .sticky {
+            color: white;
+            position: sticky;
+            top: 10px;
+            left: 10px;
+            mix-blend-mode: difference;
+        }
+
+        .section-1,
+        .section-3,
+        .section-5,
+        .section-7 {
+            color: aqua;
+            background-color: white;
+        }
+
+        .measures {
+            height: 80vh;
+            width: 100%;
+            /* background-color: white; */
+            mix-blend-mode: difference;
+        }
+
+        .section-2,
+        .section-4,
+        .section-6 {
+            color: green;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body onscroll="myFunction()">
+    <span class="sticky">Hello</span>
+    <section class="section-1 measures">
+
+    </section>
+    <section class="section-2 measures">
+
+    </section>
+    <section class="section-3 measures" id="section-3">
+
+    </section>
+    <section class="section-4 measures">
+
+    </section>
+    <section class="section-5 measures">
+
+    </section>
+    <section class="section-6 measures">
+
+    </section>
+    <section class="section-7 measures">
+
+    </section>
+    <script>
+        function myFunction() {
+            const section3 = document.getElementById('section-3');
+            // const distanceToElement = section3.getBoundingClientRect().top + window.scrollY;
+            // console.log(distanceToElement, section3.getBoundingClientRect().top ,section3.getBoundingClientRect().bottom)
+            if (section3.getBoundingClientRect().bottom <= 200) {
+                section3.style.backgroundColor = 'yellow';
+            }
+            else if (section3.getBoundingClientRect().top <= 100) {
+                section3.style.backgroundColor = 'blue'
+            }
+            else{
+                section3.style.backgroundColor = 'white'   
+            }
+        }
+    </script>
+</body>
+
+</html>

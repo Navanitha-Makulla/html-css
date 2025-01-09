@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <canvas id="canvas"></canvas>
+
+    <script src="https://unpkg.com/@rive-app/canvas@2.7.0"></script>
+    <script>
+      const r = new rive.Rive({
+        // src: "https://cdn.rive.app/animations/vehicles.riv",
+        src:"./DivamiWebsite.riv",
+        canvas: document.getElementById("canvas"),
+        stateMachines: "bumpy",
+        autoplay: true,
+    layout: new rive.Layout({fit: 'cover', alignment: 'center'}),
+        // onLoad: () => {
+        //   r.resizeDrawingSurfaceToCanvas();
+        // },
+      });
+    </script> -->
+    <div style="width: 100%;"><canvas id="canvas" width="1000" height="1000"></canvas></div>
+<script src="https://unpkg.com/@rive-app/canvas"></script>
+<script>
+  // autoplays the first animation in the default artboard
+  new rive.Rive({
+    src:"./DivamiWebsite.riv",
+    canvas: document.getElementById('canvas'),
+    autoplay: true,
+    layout: new rive.Layout({fit: 'fill', alignment: 'center'}),
+    width:1000,height:1000
+  })
+</script>
+</body>
+</html>

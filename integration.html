@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            height: 250vh;
+        }
+        #blank-space {
+            height: 100vh;
+            width: 100%;
+            background-color: aqua;
+        }
+
+        #set-height {
+            display: block;
+        }
+
+        #v0 {
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            width: auto;
+            height: auto;
+        }
+        .container{
+            position: relative;
+        }
+        p font-family helvetica {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="blank-space">Spacer</div>
+    <div id="set-height"></div>
+    <p id="time"></p>
+    <div class="container">
+        <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
+            <source src="./curve.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot; ">
+            </source>
+
+        </video>
+    </div>
+    <script>
+        // select video element
+        var vid = document.getElementById('v0');
+        //var vid = $('#v0')[0]; // jquery option
+
+        // pause video on load
+        vid.pause();
+
+        // pause video on document scroll (stops autoplay once scroll started)
+        window.onscroll = function () {
+            vid.pause();
+        };
+
+        // refresh video frames on interval for smoother playback
+        setInterval(function () {
+            vid.currentTime = window.pageYOffset / 400;
+        }, 40);
+    </script>
+</body>
+
+</html>
